@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjlkxlkm57r2s"]
+
+[ext_resource type="Texture2D" uid="uid://dgygjkp6gpp5q" path="res://Assets/player_ship.png" id="2_syypt"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_fo1wq"]
+[ext_resource type="Script" path="res://Scripts/fire.gd" id="4_f1prm"]
+[ext_resource type="PackedScene" uid="uid://burk5wiebbwk0" path="res://Scenes/bullet.tscn" id="5_8uoa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jexd2"]
+size = Vector2(38, 21)
+
+[node name="player" type="Area2D"]
+script = ExtResource("3_fo1wq")
+
+[node name="player" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_syypt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_jexd2")
+
+[node name="fire" type="Node2D" parent="."]
+position = Vector2(0, -23)
+script = ExtResource("4_f1prm")
+fire = ExtResource("5_8uoa6")
