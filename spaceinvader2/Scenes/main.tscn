@@ -18,4 +18,4 @@ texture = ExtResource("1_xd51t")
 position = Vector2(0, -259)
 
 [node name="bulletRemove" parent="." instance=ExtResource("3_hfwj6")]
-position = Vector2(0, -491)
+position = Vector2(0, -610)
