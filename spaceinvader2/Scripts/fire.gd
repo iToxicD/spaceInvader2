@@ -7,7 +7,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fire"):
 		var bullet = fire.instantiate()
 		# Situa la bala por delante de la nave
-		bullet.global_position = get_parent().global_position + Vector2(0, -20)
+		bullet.global_position = get_parent().global_position - Vector2(0, 20)
 		# Sigue al nodo padre
 		get_tree().root.get_node("main").add_child(bullet)
 		
