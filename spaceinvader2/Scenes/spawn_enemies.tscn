@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhlwb4noq3l15"]
+
+[ext_resource type="Script" path="res://Scripts/spawn_enemies.gd" id="1_2q8yn"]
+[ext_resource type="PackedScene" uid="uid://dk80xb82wfla4" path="res://Scenes/enemy_01.tscn" id="2_h16xi"]
+[ext_resource type="PackedScene" uid="uid://cme8rphcxwfgk" path="res://Scenes/enemy_02.tscn" id="3_n8m6t"]
+[ext_resource type="PackedScene" uid="uid://b3nhgplul1205" path="res://Scenes/enemy_03.tscn" id="4_qe61c"]
+
+[node name="spawnEnemies" type="Node2D"]
+script = ExtResource("1_2q8yn")
+enemy01 = ExtResource("2_h16xi")
+enemy02 = ExtResource("3_n8m6t")
+enemy03 = ExtResource("4_qe61c")
