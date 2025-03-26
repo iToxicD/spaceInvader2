@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://baosd6kpm35e3"]
+
+[ext_resource type="Texture2D" uid="uid://cr51k8876holq" path="res://Assets/Background/Background.png" id="1_gfoh0"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_joiga"]
+[ext_resource type="Texture2D" uid="uid://chy8saeo11cd3" path="res://Assets/UI/startButton.png" id="2_4i2ki"]
+
+[node name="mainMenu" type="CanvasLayer"]
+script = ExtResource("1_joiga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 339)
+scale = Vector2(4.66574, -3.12334)
+texture = ExtResource("1_gfoh0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = 63.0
+offset_right = 115.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.84)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Space Invader 2"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_mask = 4
+icon = ExtResource("2_4i2ki")
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
