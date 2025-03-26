@@ -24,3 +24,7 @@ func _process(delta: float) -> void:
 	else:
 		direction = Vector2.ZERO
 	position.x += movement
+
+
+func _on_area_entered(area: Area2D) -> void:
+	queue_free()

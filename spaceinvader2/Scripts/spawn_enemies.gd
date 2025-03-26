@@ -22,18 +22,18 @@ func moveEnemy(delta):
 	
 
 func spawnEnemy():
-	for rows in range(rows):
+	for row in range(rows):
 		for column in range(columns):
-			var enemy1 = enemy01.instantiate()
-			var enemy2 = enemy02.instantiate()
-			var enemy3 = enemy03.instantiate()
-			var positionX = column * distanceX
-			var positionY = rows * distanceY
+			var enemy
+			if row == 0:
+				enemy = enemy01.instantiate()
+			elif row == 1:
+				enemy = enemy02.instantiate()
+			else:
+				enemy = enemy03.instantiate()
 			
-			enemy1.position = Vector2(positionX, positionY + 40)
-			enemy2.position = Vector2(positionX, positionY)
-			enemy3.position = Vector2(positionX, positionY - 40)
-			add_child(enemy1)
-			add_child(enemy2)
-			add_child(enemy3)
+			var positionX = column * distanceX
+			var positionY = row * distanceY
+			enemy.position = Vector2(positionX, positionY)
+			add_child(enemy)
 	
