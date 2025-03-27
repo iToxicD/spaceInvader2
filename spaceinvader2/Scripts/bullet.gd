@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 	position.y -= delta * speed
 
 func _on_area_entered(area):
+	area is Player
 	queue_free()

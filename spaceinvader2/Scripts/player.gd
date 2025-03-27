@@ -1,11 +1,15 @@
 extends Node2D
 
+class_name Player
+
+@export var gameOverScreen: PackedScene
+
 @export var speed = 300
 @export var bulletSpeed = 300
 var direction = Vector2.ZERO
 
 @onready var collision: CollisionShape2D
-
+@onready var animationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +29,11 @@ func _process(delta: float) -> void:
 		direction = Vector2.ZERO
 	position.x += movement
 
-
+func playerDestroy():
+	animationPlayer.play("explosion")
+	get_tree().paused = true
+	var gameOver = gameOverScreen.instantiate()
+	get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
+	
 func _on_area_entered(area: Area2D) -> void:
 	queue_free()

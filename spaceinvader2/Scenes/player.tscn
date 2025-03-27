@@ -1,16 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjlkxlkm57r2s"]
+[gd_scene load_steps=17 format=3 uid="uid://cjlkxlkm57r2s"]
 
+[ext_resource type="PackedScene" uid="uid://gltenvy87pon" path="res://Scenes/gameOver.tscn" id="2_mgxsm"]
 [ext_resource type="Texture2D" uid="uid://dgygjkp6gpp5q" path="res://Assets/player_ship.png" id="2_syypt"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_fo1wq"]
 [ext_resource type="Script" path="res://Scripts/fire.gd" id="4_f1prm"]
 [ext_resource type="PackedScene" uid="uid://burk5wiebbwk0" path="res://Scenes/bullet.tscn" id="5_8uoa6"]
+[ext_resource type="Texture2D" uid="uid://cssg2lvtas066" path="res://Assets/spriteAnimation/explosion1.png" id="5_vrm3p"]
+[ext_resource type="Texture2D" uid="uid://5kn3gfney5av" path="res://Assets/spriteAnimation/explosion2.png" id="6_s24o1"]
+[ext_resource type="Texture2D" uid="uid://dci7wbtsibjtm" path="res://Assets/spriteAnimation/explosion3.png" id="7_dhub7"]
+[ext_resource type="Texture2D" uid="uid://q3g8pcjg4idl" path="res://Assets/spriteAnimation/explosion4.png" id="8_p3jb6"]
+[ext_resource type="Texture2D" uid="uid://c6c38g85y4eu8" path="res://Assets/spriteAnimation/explosion6.png" id="9_tqo3e"]
+[ext_resource type="Texture2D" uid="uid://bx4q6knlt147c" path="res://Assets/spriteAnimation/explosion7.png" id="10_m2sge"]
+[ext_resource type="Texture2D" uid="uid://dy75lqjrhwqtb" path="res://Assets/spriteAnimation/explosion8.png" id="11_no7vr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jexd2"]
 size = Vector2(38, 21)
 
+[sub_resource type="Animation" id="Animation_lugsk"]
+resource_name = "explosion"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_vrm3p"), ExtResource("6_s24o1"), ExtResource("7_dhub7"), ExtResource("8_p3jb6"), ExtResource("9_tqo3e"), ExtResource("10_m2sge"), ExtResource("11_no7vr")]
+}
+
+[sub_resource type="Animation" id="Animation_ex5ba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_syypt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0wr8"]
+_data = {
+"RESET": SubResource("Animation_ex5ba"),
+"explosion": SubResource("Animation_lugsk")
+}
+
 [node name="player" type="Area2D"]
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("3_fo1wq")
+gameOverScreen = ExtResource("2_mgxsm")
 
 [node name="player" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -24,5 +70,10 @@ shape = SubResource("RectangleShape2D_jexd2")
 position = Vector2(0, -23)
 script = ExtResource("4_f1prm")
 fire = ExtResource("5_8uoa6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o0wr8")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,6 +1,7 @@
 extends Node2D
 # Carga la escena del disparo
 @export var fire: PackedScene
+@onready var fireSound = $AudioStreamPlayer2D
 # Con esto hacemos que mientras exista la bala no se pueda disparar otra vez
 var canFire = true
 
@@ -14,6 +15,8 @@ func _input(event: InputEvent) -> void:
 		# Sigue al nodo padre
 		get_tree().root.get_node("main").add_child(bullet)
 		bullet.tree_exited.connect(bullet_destroy)
+		if fireSound:
+			fireSound.play()
 		
 func bullet_destroy():
 	canFire = true

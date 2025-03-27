@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk80xb82wfla4"]
+[gd_scene load_steps=6 format=3 uid="uid://dk80xb82wfla4"]
 
-[ext_resource type="Script" path="res://Scripts/enemyMove.gd" id="1_7k5oa"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_7k5oa"]
 [ext_resource type="Texture2D" uid="uid://c52tbrlf34by1" path="res://Assets/enemyShips/enemy01.png" id="1_sw0i8"]
+[ext_resource type="PackedScene" uid="uid://b684tavrdcjo2" path="res://Scenes/enemyBullet.tscn" id="2_skqcb"]
+[ext_resource type="AudioStream" uid="uid://c0ba7oc13f0lw" path="res://Assets/sounds/explosion.mp3" id="3_ep4gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfhsx"]
 size = Vector2(32, 14)
@@ -10,7 +12,7 @@ size = Vector2(32, 14)
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_7k5oa")
-speed = 50
+enemyBullet = ExtResource("2_skqcb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -19,5 +21,8 @@ texture = ExtResource("1_sw0i8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jfhsx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ep4gq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

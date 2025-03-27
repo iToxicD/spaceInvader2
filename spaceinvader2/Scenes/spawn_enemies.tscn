@@ -7,6 +7,6 @@
 
 [node name="spawnEnemies" type="Node2D"]
 script = ExtResource("1_2q8yn")
-enemy01 = ExtResource("2_h16xi")
+enemy01 = ExtResource("4_qe61c")
 enemy02 = ExtResource("3_n8m6t")
-enemy03 = ExtResource("4_qe61c")
+enemy03 = ExtResource("2_h16xi")

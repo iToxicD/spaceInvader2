@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cr51k8876holq" path="res://Assets/Background/Background.png" id="1_gfoh0"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_joiga"]
-[ext_resource type="Texture2D" uid="uid://chy8saeo11cd3" path="res://Assets/UI/startButton.png" id="2_4i2ki"]
+[ext_resource type="FontFile" uid="uid://b8lly26exufdj" path="res://Assets/fonts/Stacked pixel.ttf" id="3_4a0rb"]
 
 [node name="mainMenu" type="CanvasLayer"]
 script = ExtResource("1_joiga")
@@ -31,7 +31,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 80
+theme_override_fonts/font = ExtResource("3_4a0rb")
+theme_override_font_sizes/font_size = 120
 text = "Space Invader 2"
 horizontal_alignment = 1
 
@@ -42,8 +43,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.1
+theme_override_colors/font_disabled_color = Color(0, 0.643698, 0, 1)
+theme_override_fonts/font = ExtResource("3_4a0rb")
+theme_override_font_sizes/font_size = 80
 button_mask = 4
-icon = ExtResource("2_4i2ki")
+text = "Start"
 icon_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
