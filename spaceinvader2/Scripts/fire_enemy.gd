@@ -1,10 +1,11 @@
 extends Node2D
 
 @export var bulletEnemy: PackedScene
-@export var timeFireMin = 2
-@export var timeFireMax = 8
+@export var timeFireMin = 8
+@export var timeFireMax = 12
+@export var speed = 70
 
-
+var direction = Vector2.DOWN
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var timer = Timer.new()
@@ -12,6 +13,10 @@ func _ready() -> void:
 	timer.autostart = true
 	timer.one_shot = false
 	timer.timeout.connect(shoot)
+	add_child(timer)
+
+func _process(delta: float) -> void:
+	position +=  direction * speed * delta
 
 func shoot():
 	if bulletEnemy:
