@@ -19,7 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var movement = speed * delta * direction.x
-	# Entrada por teclado de movimientos horizontales
+	# Keyboard input of horizontal movements
 	var input = Input.get_axis("move_left","move_right")
 	if input > 0:
 		direction = Vector2.RIGHT
@@ -32,8 +32,10 @@ func _process(delta: float) -> void:
 func playerDestroy():
 	animationPlayer.play("explosion")
 	get_tree().paused = true
+	# game over screen instance
 	var gameOver = gameOverScreen.instantiate()
 	get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
 	
 func _on_area_entered(area: Area2D) -> void:
+	playerDestroy()
 	queue_free()

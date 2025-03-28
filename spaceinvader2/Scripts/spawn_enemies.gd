@@ -6,7 +6,7 @@ extends Node2D
 
 var columns = 10
 var rows = 3
-# Distancia entre enemigos
+# Distance between enemies
 var distanceX = 60
 var distanceY = 60
 
@@ -23,6 +23,7 @@ func moveEnemy(delta):
 	position += direction * directionSpeed * delta
 	
 func spawnEnemy():
+	# Create the grid for the ships
 	for row in range(rows):
 		for column in range(columns):
 			var enemy
@@ -33,7 +34,9 @@ func spawnEnemy():
 			elif row == 2:
 				enemy = enemy03.instantiate()
 			
+			# Column position
 			var positionX = column * distanceX
+			# Rows position
 			var positionY = row * distanceY
 			enemy.position = Vector2(positionX, positionY)
 			add_child(enemy)

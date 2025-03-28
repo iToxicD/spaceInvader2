@@ -6,7 +6,6 @@ var maxBullets = 2
 var bulletsInScreen = 0
 
 func _ready():
-	#randomize()
 	randomFire()
 
 # The ships shoot as long as they are not destroyed
@@ -25,5 +24,7 @@ func fire():
 		get_tree().current_scene.add_child(bullet)
 
 func _on_area_entered(area):
+	# Calls the node that counts the destroyed ship
+	get_tree().root.get_node("main").countShip()
 	explosion.play()
 	queue_free()

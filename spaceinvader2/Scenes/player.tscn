@@ -16,6 +16,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jexd2"]
 size = Vector2(38, 21)
 
+[sub_resource type="Animation" id="Animation_ex5ba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_syypt")]
+}
+
 [sub_resource type="Animation" id="Animation_lugsk"]
 resource_name = "explosion"
 length = 1.5
@@ -30,21 +45,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("5_vrm3p"), ExtResource("6_s24o1"), ExtResource("7_dhub7"), ExtResource("8_p3jb6"), ExtResource("9_tqo3e"), ExtResource("10_m2sge"), ExtResource("11_no7vr")]
-}
-
-[sub_resource type="Animation" id="Animation_ex5ba"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("player:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_syypt")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0wr8"]

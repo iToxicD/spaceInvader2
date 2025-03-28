@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://gltenvy87pon"]
+[gd_scene load_steps=4 format=3 uid="uid://gltenvy87pon"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_oi857"]
 [ext_resource type="FontFile" uid="uid://b8lly26exufdj" path="res://Assets/fonts/Stacked pixel.ttf" id="1_x0sw6"]
+[ext_resource type="Texture2D" uid="uid://cr51k8876holq" path="res://Assets/Background/Background.png" id="2_o3v0g"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,6 +28,11 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/VBoxContainer"]
+position = Vector2(215.5, 97)
+scale = Vector2(3.67188, 2.1375)
+texture = ExtResource("2_o3v0g")
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
