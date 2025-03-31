@@ -32,8 +32,7 @@ func _process(delta: float) -> void:
 func playerDestroy():
 	animationPlayer.play("explosion")
 	get_tree().paused = true
-	# game over screen instance
-	var gameOver = gameOverScreen.instantiate()
+	# game over screen load
 	get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
 	
 func _on_area_entered(area: Area2D) -> void:

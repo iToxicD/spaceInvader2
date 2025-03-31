@@ -11,6 +11,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_oi857")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568.5, 308)
+scale = Vector2(3.67188, 2.1375)
+texture = ExtResource("2_o3v0g")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -28,11 +33,6 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/VBoxContainer"]
-position = Vector2(215.5, 97)
-scale = Vector2(3.67188, 2.1375)
-texture = ExtResource("2_o3v0g")
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2

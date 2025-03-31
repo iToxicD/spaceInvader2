@@ -43,8 +43,10 @@ offset_bottom = -407.0
 
 [node name="Label" type="Label" parent="UI/Control"]
 layout_mode = 0
-offset_right = 129.0
-offset_bottom = 23.0
+offset_left = -6.0
+offset_top = 3.0
+offset_right = 167.0
+offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("6_uah06")
 theme_override_font_sizes/font_size = 20
 text = "Naves destruidas: 0"
